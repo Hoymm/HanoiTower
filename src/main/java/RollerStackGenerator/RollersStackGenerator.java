@@ -3,16 +3,18 @@ package RollerStackGenerator;
 import java.util.Stack;
 
 public class RollersStackGenerator {
-    private static final int DEFAULT_SIZE = 3, MIN_SIZE = 3, MAX_SIZE = 20;
+    private static final int DEFAULT_SIZE = 3;
     private int stackSize;
+    private RollerValidator rollerValidator;
 
     public RollersStackGenerator() {
+        rollerValidator = new RollerValidator();
         setStackSize(DEFAULT_SIZE);
     }
 
-    public boolean setStackSize(int rollersToGenerate) {
-        if (MIN_SIZE <= rollersToGenerate && rollersToGenerate <= MAX_SIZE){
-            stackSize = rollersToGenerate;
+    public boolean setStackSize(int stackSizeToGenerate) {
+        if (rollerValidator.isProperSize(stackSizeToGenerate)){
+            stackSize = stackSizeToGenerate;
             return true;
         }
         return false;
