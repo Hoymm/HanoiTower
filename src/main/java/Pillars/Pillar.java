@@ -12,14 +12,18 @@ public class Pillar {
     }
 
     public Pillar(){
-        this.rollerStack = new Stack<Roller>();
+        this.rollerStack = new Stack<>();
     }
 
     public boolean addRoller(Roller roller) {
-        if (rollerStack.empty()){
+        if (canRollerBeAddedToStack(roller)){
             rollerStack.push(roller);
+            return true;
         }
-        return true;
-        //else if (rollerStack.peek().compareTo(roller))
+        return false;
+    }
+
+    private boolean canRollerBeAddedToStack(Roller roller) {
+        return rollerStack.empty() || roller.isSmallerThan(rollerStack.peek());
     }
 }
