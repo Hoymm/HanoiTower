@@ -1,6 +1,6 @@
 package Pillars;
 
-import Roller.Roller;
+import RollerStackGenerator.Roller;
 
 import java.util.Stack;
 

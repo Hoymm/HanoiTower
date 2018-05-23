@@ -1,4 +1,4 @@
-package Roller;
+package RollerStackGenerator;
 
 public class Roller implements Comparable<Roller> {
     private int size;

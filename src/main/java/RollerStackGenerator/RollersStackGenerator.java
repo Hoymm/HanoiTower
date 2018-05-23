@@ -1,4 +1,4 @@
-package Pillars;
+package RollerStackGenerator;
 
 public class RollersStackGenerator {
     public boolean generateRollersStack(int rollersToGenerate) {

@@ -1,4 +1,4 @@
-import Pillars.RollersStackGenerator;
+import RollerStackGenerator.RollersStackGenerator;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,6 +6,6 @@ public class Main {
         rollersStackGenerator.generateRollersStack(3);
 
         HanoiGame hanoiGame = new HanoiGame();
-        //hanoiGame.setUpNewGame(Pillars.RollersStackGenerator.generateAndReturn(3));
+        //hanoiGame.setUpNewGame(RollerStackGenerator.RollersStackGenerator.generateAndReturn(3));
     }
 }

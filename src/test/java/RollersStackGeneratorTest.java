@@ -1,4 +1,4 @@
-import Pillars.RollersStackGenerator;
+import RollerStackGenerator.RollersStackGenerator;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
