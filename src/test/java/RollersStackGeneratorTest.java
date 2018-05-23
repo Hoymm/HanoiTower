@@ -1,7 +1,11 @@
+import RollerStackGenerator.Roller;
 import RollerStackGenerator.RollersStackGenerator;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Stack;
+
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
@@ -15,16 +19,57 @@ public class RollersStackGeneratorTest {
 
     @Test
     public void generateRollerStack_size3_shouldReturnTrue() {
-        assertTrue(rollersStackGenerator.generateRollersStack(3));
+        assertTrue(rollersStackGenerator.setStackSize(3));
     }
 
     @Test
     public void generateRollerStack_size2_shouldReturnFalse() {
-        assertFalse(rollersStackGenerator.generateRollersStack(2));
+        assertFalse(rollersStackGenerator.setStackSize(2));
     }
 
     @Test
     public void generateRollerStack_negativeSize_shouldReturnFalse() {
-        assertFalse(rollersStackGenerator.generateRollersStack(-1));
+        assertFalse(rollersStackGenerator.setStackSize(-1));
+    }
+
+    @Test
+    public void generateStack_whenGeneratorInitializatedWithSize5_returnStackWithProperRollers() {
+        // given
+        RollersStackGenerator stackGeneratedOfSize5 = new RollersStackGenerator();
+        stackGeneratedOfSize5.setStackSize(5);
+        // when
+        Stack<Roller> expectedRollerStack = generateRollersStack(5);
+        // then
+        assertEquals(stackGeneratedOfSize5.generateStack(), expectedRollerStack);
+    }
+
+    @Test
+    public void generateStack_whenGeneratorInitializatedWithSize3_returnStackWithProperRollers() {
+        // given
+        RollersStackGenerator stackGeneratedOfSize3 = new RollersStackGenerator();
+        stackGeneratedOfSize3.setStackSize(3);
+        // when
+        Stack<Roller> expectedRollerStack = generateRollersStack(3);
+        // then
+        assertEquals(stackGeneratedOfSize3.generateStack(), expectedRollerStack);
+    }
+
+    @Test
+    public void generateStack_whenSizeNotSpecified_returnStackWithDefaultSizeOf3() {
+        // given
+        RollersStackGenerator stackGenerated = new RollersStackGenerator();
+        // when
+        int defaultSize = 3;
+        Stack<Roller> expectedRollerStack = generateRollersStack(defaultSize);
+        // then
+        assertEquals(stackGenerated.generateStack(), expectedRollerStack);
+    }
+
+    private Stack<Roller> generateRollersStack(int i2) {
+        Stack<Roller> expectedRollerStack = new Stack<>();
+        for (int i = 1; i < i2; ++i) {
+            expectedRollerStack.add(new Roller(i));
+        }
+        return expectedRollerStack;
     }
 }
