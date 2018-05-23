@@ -50,7 +50,7 @@ public class RollersStackGeneratorTest {
         // when
         Stack<Roller> expectedRollerStack = generateRollersStack(5);
         // then
-        assertEquals(stackGeneratedOfSize5.generateStack(), expectedRollerStack);
+        assertEquals(stackGeneratedOfSize5.generate(), expectedRollerStack);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class RollersStackGeneratorTest {
         // when
         Stack<Roller> expectedRollerStack = generateRollersStack(3);
         // then
-        assertEquals(stackGeneratedOfSize3.generateStack(), expectedRollerStack);
+        assertEquals(stackGeneratedOfSize3.generate(), expectedRollerStack);
     }
 
     @Test
@@ -72,7 +72,7 @@ public class RollersStackGeneratorTest {
         int defaultSize = 3;
         Stack<Roller> expectedRollerStack = generateRollersStack(defaultSize);
         // then
-        assertEquals(stackGenerated.generateStack(), expectedRollerStack);
+        assertEquals(stackGenerated.generate(), expectedRollerStack);
     }
 
     private Stack<Roller> generateRollersStack(int i2) {

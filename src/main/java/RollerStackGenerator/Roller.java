@@ -1,17 +1,14 @@
 package RollerStackGenerator;
 
-import java.util.Objects;
-
-public class Roller implements Comparable<Roller> {
+public class Roller {
     private int size;
 
     public Roller(int size) {
         this.size = size;
     }
 
-    @Override
-    public int compareTo(Roller o) {
-        return this.size - o.size;
+    public boolean isSmallerThan(Roller roller){
+        return this.size < roller.size;
     }
 
     @Override
