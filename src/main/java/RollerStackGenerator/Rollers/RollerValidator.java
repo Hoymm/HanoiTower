@@ -13,12 +13,17 @@ public class RollerValidator {
         return (new Roller(MIN_SIZE-1).isSmallerThan(roller) && roller.isSmallerThan(new Roller(MAX_SIZE+1)));
     }
 
-    public boolean isProperRollerStack(final Stack<Roller> stack) {
-        return isStackDecreasing((Stack<Roller>) stack.clone())
-                && isStackContainingProperSizeRollers((Stack<Roller>) stack.clone());
+    public boolean isProperRollerStack_ThrowExceptionIfNot(final Stack<Roller> stack) throws WrongRollerStack {
+        if (!isStackProperlyIncreasesRollerSizesFromTopToBottom((Stack<Roller>) stack.clone())){
+            throw new WrongRollerStack("Stack is not increasing its size from top to bottom " + stack.toString());
+        }
+        if (!isStackContainingProperSizeRollers((Stack<Roller>) stack.clone())){
+            throw new WrongRollerStack("Stack contain wrong size roller " + stack.toString());
+        }
+        return true;
     }
 
-    private boolean isStackDecreasing(Stack<Roller> stack) {
+    private boolean isStackProperlyIncreasesRollerSizesFromTopToBottom(Stack<Roller> stack) {
         if (stack.isEmpty()){
             return true;
         }

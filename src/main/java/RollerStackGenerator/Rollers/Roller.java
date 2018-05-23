@@ -18,4 +18,9 @@ public class Roller {
         Roller roller = (Roller) o;
         return size == roller.size;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(size);
+    }
 }

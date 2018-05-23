@@ -1,9 +1,10 @@
 import Pillars.Pillar;
 import RollerStackGenerator.Rollers.Roller;
-import RollerStackGenerator.Rollers.RollerSizeException;
+import RollerStackGenerator.Rollers.WrongRollerStack;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 import static org.testng.Assert.assertFalse;
@@ -40,7 +41,7 @@ public class PillarTest {
 
     @Test
     public void constructorInitialziatedWithStack543_addRollerSize2_returnsTrue()
-            throws RollerSizeException {
+            throws WrongRollerStack {
         Stack<Roller> rollerStack = StackGenerator.generateRollerStackFirstIndexToBottom(5,4,3);
         Pillar pillar = new Pillar(rollerStack);
         assertTrue(pillar.addRoller(new Roller(2)));
@@ -48,7 +49,7 @@ public class PillarTest {
 
     @Test
     public void constructorInitialziatedWithStack543_addRollerSize3_returnsFalse()
-            throws RollerSizeException  {
+            throws WrongRollerStack {
         Stack<Roller> rollerStack = StackGenerator.generateRollerStackFirstIndexToBottom(5,4,3);
         Pillar pillar = new Pillar(rollerStack);
         assertFalse(pillar.addRoller(new Roller(3)));
@@ -56,7 +57,7 @@ public class PillarTest {
 
     @Test
     public void constructorInitialziatedWithStack543_addRollerSize4_returnsFalse()
-            throws RollerSizeException  {
+            throws WrongRollerStack {
         Stack<Roller> rollerStack = StackGenerator.generateRollerStackFirstIndexToBottom(5,4,3);
         Pillar pillar = new Pillar(rollerStack);
         assertFalse(pillar.addRoller(new Roller(4)));
@@ -64,7 +65,7 @@ public class PillarTest {
 
     @Test
     public void constructorInitializedWithEmptyStack_addRoller_returnsTrue()
-            throws RollerSizeException  {
+            throws WrongRollerStack {
         Stack<Roller> rollerStack = StackGenerator.generateRollerStackFirstIndexToBottom();
         Pillar pillar = new Pillar(rollerStack);
         assertTrue(pillar.addRoller(new Roller(4)));
@@ -72,19 +73,31 @@ public class PillarTest {
 
     @Test
     public void constructorInitailizatedWithRollerStack1_20_isAllowed()
-            throws RollerSizeException  {
+            throws WrongRollerStack {
         int [] numbersFrom20to1 = StackGenerator.generateIntArray(20, 1);
+        System.out.println(Arrays.toString(numbersFrom20to1));
         Stack<Roller> rollerStack1To20 = StackGenerator.generateRollerStackFirstIndexToBottom(numbersFrom20to1);
         new Pillar(rollerStack1To20);
     }
 
-    // TODO create exeptions tests when initing RollerStack using stack
-/*
-    @Test (expectedExceptions = RollerSizeException.class)
-    public void constructorInitailizatedWithRollerStack1_21_throwsRollerSizeException()
-            throws RollerSizeException  {
-        int [] numbersFrom1To20 = generateIntArray(20, 1);
-        Stack<Roller> rollerStack1To20 = generateRollerStackFirstIndexToBottom(numbersFrom1To20);
+    @Test (expectedExceptions = WrongRollerStack.class)
+    public void constructorInitailizatedWithRollerStack1_21_throwsRollerSizeException() throws WrongRollerStack {
+        int [] numbersFrom1To20 = StackGenerator.generateIntArray(1, 21);
+        Stack<Roller> rollerStack1To20 = StackGenerator.generateRollerStackFirstIndexToBottom(numbersFrom1To20);
         new Pillar(rollerStack1To20);
-    }*/
+    }
+
+    @Test (expectedExceptions = WrongRollerStack.class)
+    public void constructorInitailizatedWithRollerStack1_4_throwsRollerSizeException() throws WrongRollerStack {
+        int [] numbersFrom1To20 = StackGenerator.generateIntArray(1, 4);
+        Stack<Roller> rollerStack1To20 = StackGenerator.generateRollerStackFirstIndexToBottom(numbersFrom1To20);
+        new Pillar(rollerStack1To20);
+    }
+
+    @Test (expectedExceptions = WrongRollerStack.class)
+    public void constructorInitailizatedWithRollerStack22_25_throwsRollerSizeException() throws WrongRollerStack {
+        int [] numbersFrom1To20 = StackGenerator.generateIntArray(22, 25);
+        Stack<Roller> rollerStack1To20 = StackGenerator.generateRollerStackFirstIndexToBottom(numbersFrom1To20);
+        new Pillar(rollerStack1To20);
+    }
 }

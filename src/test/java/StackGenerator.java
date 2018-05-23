@@ -18,13 +18,13 @@ class StackGenerator {
 
     static void addValuesIncreasingly(int from, int to, int[] resultArray) {
         for (int i = 0; i <= to-from; ++i){
-            resultArray[0] = i+from;
+            resultArray[i] = i+from;
         }
     }
 
     static void addValuesDecreasingly(int from, int to, int[] resultArray) {
-        for (int i = 0; i <= to-from; ++i){
-            resultArray[0] = to-i;
+        for (int i = 0; i <= from-to; ++i){
+            resultArray[i] = from-i;
         }
     }
 

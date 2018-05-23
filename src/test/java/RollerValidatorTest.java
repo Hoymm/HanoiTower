@@ -1,5 +1,6 @@
 import RollerStackGenerator.Rollers.Roller;
 import RollerStackGenerator.Rollers.RollerValidator;
+import RollerStackGenerator.Rollers.WrongRollerStack;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -67,26 +68,26 @@ public class RollerValidatorTest {
     }
 
     @Test
-    public void isProperRollerStack_properStack_returnTrue() {
+    public void isProperRollerStack_properStack_returnTrue() throws WrongRollerStack {
         Stack<Roller> properRollersStack = StackGenerator.generateRollerStackFirstIndexToBottom(3, 2, 1);
-        assertTrue(rollerValidator.isProperRollerStack(properRollersStack));
+        assertTrue(rollerValidator.isProperRollerStack_ThrowExceptionIfNot(properRollersStack));
     }
 
-    @Test
-    public void isProperRollerStack_wrongStackBiggerSizesAtTheTop_returnTrue() {
+    @Test (expectedExceptions = WrongRollerStack.class)
+    public void isProperRollerStack_wrongStackBiggerSizesAtTheTop_returnTrue() throws WrongRollerStack {
         Stack<Roller> wrongStack = StackGenerator.generateRollerStackFirstIndexToBottom(1, 2, 3);
-        assertFalse(rollerValidator.isProperRollerStack(wrongStack));
+        rollerValidator.isProperRollerStack_ThrowExceptionIfNot(wrongStack);
     }
 
-    @Test
-    public void isProperRollerStack_wrongStackSameRollers_returnTrue() {
+    @Test (expectedExceptions = WrongRollerStack.class)
+    public void isProperRollerStack_wrongStackSameRollers_returnTrue() throws WrongRollerStack {
         Stack<Roller> wrongStack = StackGenerator.generateRollerStackFirstIndexToBottom(1, 2, 2);
-        assertFalse(rollerValidator.isProperRollerStack(wrongStack));
+        rollerValidator.isProperRollerStack_ThrowExceptionIfNot(wrongStack);
     }
 
-    @Test
-    public void isProperRollerStack_zeroSizeRoller_returnTrue() {
+    @Test (expectedExceptions = WrongRollerStack.class)
+    public void isProperRollerStack_zeroSizeRoller_returnTrue() throws WrongRollerStack {
         Stack<Roller> wrongStack = StackGenerator.generateRollerStackFirstIndexToBottom(0);
-        assertFalse(rollerValidator.isProperRollerStack(wrongStack));
+        rollerValidator.isProperRollerStack_ThrowExceptionIfNot(wrongStack);
     }
 }
