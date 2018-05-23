@@ -18,18 +18,28 @@ public class RollersStackGeneratorTest {
     }
 
     @Test
-    public void generateRollerStack_size3_shouldReturnTrue() {
+    public void setStackSize_size3_shouldReturnTrue() {
         assertTrue(rollersStackGenerator.setStackSize(3));
     }
 
     @Test
-    public void generateRollerStack_size2_shouldReturnFalse() {
+    public void setStackSize_maxSize20_shouldReturnTrue() {
+        assertTrue(rollersStackGenerator.setStackSize(20));
+    }
+
+    @Test
+    public void setStackSize_negativeSize_shouldReturnFalse() {
+        assertFalse(rollersStackGenerator.setStackSize(-1));
+    }
+
+    @Test
+    public void setStackSize_size2_shouldReturnFalse() {
         assertFalse(rollersStackGenerator.setStackSize(2));
     }
 
     @Test
-    public void generateRollerStack_negativeSize_shouldReturnFalse() {
-        assertFalse(rollersStackGenerator.setStackSize(-1));
+    public void setStackSize_maxSize20Plus1_shouldReturnFalse() {
+        assertFalse(rollersStackGenerator.setStackSize(20+1));
     }
 
     @Test
