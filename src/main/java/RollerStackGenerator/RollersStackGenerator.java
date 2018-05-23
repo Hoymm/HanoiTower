@@ -1,19 +1,21 @@
 package RollerStackGenerator;
 
+import RollerStackGenerator.Rollers.Roller;
+
 import java.util.Stack;
 
 public class RollersStackGenerator {
     private static final int DEFAULT_SIZE = 3;
     private int stackSize;
-    private RollerValidator rollerValidator;
+    private StackGeneratorValidator stackGeneratorValidator;
 
     public RollersStackGenerator() {
-        rollerValidator = new RollerValidator();
+        stackGeneratorValidator = new StackGeneratorValidator();
         setStackSize(DEFAULT_SIZE);
     }
 
     public boolean setStackSize(int stackSizeToGenerate) {
-        if (rollerValidator.isProperSize(stackSizeToGenerate)){
+        if (stackGeneratorValidator.isProperSize(stackSizeToGenerate)){
             stackSize = stackSizeToGenerate;
             return true;
         }

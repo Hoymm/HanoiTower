@@ -1,7 +1,9 @@
-import RollerStackGenerator.Roller;
-import RollerStackGenerator.RollerValidator;
+import RollerStackGenerator.Rollers.Roller;
+import RollerStackGenerator.Rollers.RollerValidator;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.Stack;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
@@ -20,8 +22,8 @@ public class RollerValidatorTest {
     }
 
     @Test
-    public void isProperSize_RollerSize2_returnFalse() {
-        assertFalse(rollerValidator.isProperSize(2));
+    public void isProperSize_RollerSize0_returnFalse() {
+        assertFalse(rollerValidator.isProperSize(0));
     }
 
     @Test
@@ -45,8 +47,8 @@ public class RollerValidatorTest {
     }
 
     @Test
-    public void isProperRoller_RollerSize2_returnFalse() {
-        assertFalse(rollerValidator.isProperRoller(new Roller(2)));
+    public void isProperRoller_RollerSize0_returnFalse() {
+        assertFalse(rollerValidator.isProperRoller(new Roller(0)));
     }
 
     @Test
@@ -62,5 +64,29 @@ public class RollerValidatorTest {
     @Test
     public void isProperRoller_RollerSize20_returnTrue() {
         assertTrue(rollerValidator.isProperRoller(new Roller(20)));
+    }
+
+    @Test
+    public void isProperRollerStack_properStack_returnTrue() {
+        Stack<Roller> properRollersStack = StackGenerator.generateRollerStackFirstIndexToBottom(3, 2, 1);
+        assertTrue(rollerValidator.isProperRollerStack(properRollersStack));
+    }
+
+    @Test
+    public void isProperRollerStack_wrongStackBiggerSizesAtTheTop_returnTrue() {
+        Stack<Roller> wrongStack = StackGenerator.generateRollerStackFirstIndexToBottom(1, 2, 3);
+        assertFalse(rollerValidator.isProperRollerStack(wrongStack));
+    }
+
+    @Test
+    public void isProperRollerStack_wrongStackSameRollers_returnTrue() {
+        Stack<Roller> wrongStack = StackGenerator.generateRollerStackFirstIndexToBottom(1, 2, 2);
+        assertFalse(rollerValidator.isProperRollerStack(wrongStack));
+    }
+
+    @Test
+    public void isProperRollerStack_zeroSizeRoller_returnTrue() {
+        Stack<Roller> wrongStack = StackGenerator.generateRollerStackFirstIndexToBottom(0);
+        assertFalse(rollerValidator.isProperRollerStack(wrongStack));
     }
 }

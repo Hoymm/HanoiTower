@@ -1,8 +1,8 @@
 package Pillars;
 
-import RollerStackGenerator.Roller;
-import RollerStackGenerator.RollerSizeException;
-import RollerStackGenerator.RollerValidator;
+import RollerStackGenerator.Rollers.Roller;
+import RollerStackGenerator.Rollers.RollerSizeException;
+import RollerStackGenerator.Rollers.RollerValidator;
 
 import java.util.Stack;
 
@@ -11,8 +11,7 @@ public class Pillar {
     private RollerValidator rollerValidator;
 
     public Pillar(Stack<Roller> rollerStack) throws RollerSizeException {
-       // TODO
-        /* if (rollerValidator.isProperRoller(rollerStack)) {
+        /*if (rollerValidator.isProperRoller(rollerStack)) {
             this.rollerStack = rollerStack;
         }*/
         this();
