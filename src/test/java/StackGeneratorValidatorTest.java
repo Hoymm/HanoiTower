@@ -1,4 +1,4 @@
-import RollerStackGenerator.StackGeneratorValidator;
+import rollerStackGenerator.StackGeneratorValidator;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

@@ -1,4 +1,4 @@
-package RollerStackGenerator.Rollers;
+package rollerStackGenerator.Rollers;
 
 public class WrongRollerStack extends Exception{
     public WrongRollerStack(String message) {

@@ -1,6 +1,6 @@
-import Pillars.Pillar;
-import RollerStackGenerator.Rollers.Roller;
-import RollerStackGenerator.Rollers.WrongRollerStack;
+import pillars.Pillar;
+import rollerStackGenerator.Rollers.Roller;
+import rollerStackGenerator.Rollers.WrongRollerStack;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

@@ -1,4 +1,4 @@
-package RollerStackGenerator;
+package rollerStackGenerator;
 
 public class StackGeneratorValidator {
     private final int MIN_STACK_SIZE_TO_GEN = 3, MAX_STACK_SIZE_TO_GEN = 20;

@@ -1,8 +1,8 @@
-package Pillars;
+package pillars;
 
-import RollerStackGenerator.Rollers.Roller;
-import RollerStackGenerator.Rollers.WrongRollerStack;
-import RollerStackGenerator.Rollers.RollerValidator;
+import rollerStackGenerator.Rollers.Roller;
+import rollerStackGenerator.Rollers.WrongRollerStack;
+import rollerStackGenerator.Rollers.RollerValidator;
 
 import java.util.Stack;
 

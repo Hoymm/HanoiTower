@@ -1,14 +1,14 @@
-import RollerStackGenerator.RollersStackGenerator;
+import states.Hanoi;
+import states.HanoiStartState;
 
 public class Main {
     public static void main(String[] args) {
-        RollersStackGenerator rollersStackGenerator = new RollersStackGenerator();
-        rollersStackGenerator.setStackSize(3);
-        HanoiGame hanoiGame = new HanoiGame(rollersStackGenerator.generate(), System.out::println);
-        
-        while(hanoiGame.notFinished()){
-            hanoiGame.nextState();
-            hanoiGame.printState();
+        Hanoi hanoi = new HanoiStartState();
+
+        while(hanoi.notFinished()){
+            hanoi.process();
+            hanoi.nextState();
+            hanoi.printState();
         }
     }
 }

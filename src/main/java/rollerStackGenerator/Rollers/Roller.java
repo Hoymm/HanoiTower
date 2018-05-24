@@ -1,4 +1,4 @@
-package RollerStackGenerator.Rollers;
+package rollerStackGenerator.Rollers;
 
 public class Roller {
     private int size;

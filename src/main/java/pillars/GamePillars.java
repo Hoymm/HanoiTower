@@ -1,6 +1,6 @@
-package Pillars;
-import RollerStackGenerator.Rollers.Roller;
-import RollerStackGenerator.Rollers.WrongRollerStack;
+package pillars;
+import rollerStackGenerator.Rollers.Roller;
+import rollerStackGenerator.Rollers.WrongRollerStack;
 
 import java.util.ArrayList;
 import java.util.List;

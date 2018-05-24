@@ -1,4 +1,4 @@
-package RollerStackGenerator.Rollers;
+package rollerStackGenerator.Rollers;
 
 import java.util.Stack;
 
