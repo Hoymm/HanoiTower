@@ -74,20 +74,20 @@ public class RollerValidatorTest {
     }
 
     @Test (expectedExceptions = WrongRollerStack.class)
-    public void isProperRollerStack_wrongStackBiggerSizesAtTheTop_returnTrue() throws WrongRollerStack {
+    public void isProperRollerStack_wrongStackBiggerSizesAtTheTop_throwsException() throws WrongRollerStack {
         Stack<Roller> wrongStack = StackGenerator.generateRollerStackFirstIndexToBottom(1, 2, 3);
         rollerValidator.isProperRollerStack_ThrowExceptionIfNot(wrongStack);
     }
 
     @Test (expectedExceptions = WrongRollerStack.class)
-    public void isProperRollerStack_wrongStackSameRollers_returnTrue() throws WrongRollerStack {
+    public void isProperRollerStack_wrongStackSameRollers_throwsException() throws WrongRollerStack {
         Stack<Roller> wrongStack = StackGenerator.generateRollerStackFirstIndexToBottom(1, 2, 2);
         rollerValidator.isProperRollerStack_ThrowExceptionIfNot(wrongStack);
     }
 
     @Test (expectedExceptions = WrongRollerStack.class)
-    public void isProperRollerStack_zeroSizeRoller_returnTrue() throws WrongRollerStack {
-        Stack<Roller> wrongStack = StackGenerator.generateRollerStackFirstIndexToBottom(0);
-        rollerValidator.isProperRollerStack_ThrowExceptionIfNot(wrongStack);
+    public void isProperRollerStack_zeroSizeRoller_throwsException() throws WrongRollerStack {
+        Stack<Roller> emptyRollerStack = StackGenerator.generateRollerStackFirstIndexToBottom(0);
+        rollerValidator.isProperRollerStack_ThrowExceptionIfNot(emptyRollerStack);
     }
 }

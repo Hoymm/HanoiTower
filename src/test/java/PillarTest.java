@@ -64,40 +64,44 @@ public class PillarTest {
     }
 
     @Test
-    public void constructorInitializedWithEmptyStack_addRoller_returnsTrue()
-            throws WrongRollerStack {
+    public void constructorInitializedWithEmptyStack_addRoller_returnsTrue() throws WrongRollerStack {
         Stack<Roller> rollerStack = StackGenerator.generateRollerStackFirstIndexToBottom();
         Pillar pillar = new Pillar(rollerStack);
         assertTrue(pillar.addRoller(new Roller(4)));
     }
 
     @Test
-    public void constructorInitailizatedWithRollerStack1_20_isAllowed()
-            throws WrongRollerStack {
+    public void constructorInitailizatedWithRollerStackFromTop_20_To_1_isAllowed() throws WrongRollerStack {
         int [] numbersFrom20to1 = StackGenerator.generateIntArray(20, 1);
-        System.out.println(Arrays.toString(numbersFrom20to1));
-        Stack<Roller> rollerStack1To20 = StackGenerator.generateRollerStackFirstIndexToBottom(numbersFrom20to1);
-        new Pillar(rollerStack1To20);
+        Stack<Roller> rollerStackFromTop20To1 = StackGenerator.generateRollerStackFirstIndexToBottom(numbersFrom20to1);
+        new Pillar(rollerStackFromTop20To1);
+    }
+
+    @Test
+    public void constructorInitializatedWithRollerStackFromTop_10_To_5__isAllowed() throws WrongRollerStack {
+        int [] numbersFrom5To10 = StackGenerator.generateIntArray(5, 10);
+        Stack<Roller> rollerStackFromTop10To5 = StackGenerator.generateRollerStackFirstIndexToBottom(numbersFrom5To10);
+        new Pillar(rollerStackFromTop10To5);
     }
 
     @Test (expectedExceptions = WrongRollerStack.class)
-    public void constructorInitailizatedWithRollerStack1_21_throwsRollerSizeException() throws WrongRollerStack {
-        int [] numbersFrom1To20 = StackGenerator.generateIntArray(1, 21);
-        Stack<Roller> rollerStack1To20 = StackGenerator.generateRollerStackFirstIndexToBottom(numbersFrom1To20);
-        new Pillar(rollerStack1To20);
+    public void constructorInitailizatedWithRollerStackFromTop_21_To_1_throwsRollerSizeException() throws WrongRollerStack {
+        int [] numbersFrom1To21 = StackGenerator.generateIntArray(1, 21);
+        Stack<Roller> rollerStackFromTop21To1 = StackGenerator.generateRollerStackFirstIndexToBottom(numbersFrom1To21);
+        new Pillar(rollerStackFromTop21To1);
     }
 
     @Test (expectedExceptions = WrongRollerStack.class)
-    public void constructorInitailizatedWithRollerStack1_4_throwsRollerSizeException() throws WrongRollerStack {
-        int [] numbersFrom1To20 = StackGenerator.generateIntArray(1, 4);
-        Stack<Roller> rollerStack1To20 = StackGenerator.generateRollerStackFirstIndexToBottom(numbersFrom1To20);
-        new Pillar(rollerStack1To20);
+    public void constructorInitailizatedWithRollerStackFromTop_4_To_1_throwsRollerSizeException() throws WrongRollerStack {
+        int [] numbersFrom1To4 = StackGenerator.generateIntArray(1, 4);
+        Stack<Roller> rollerStackFromTop4To1 = StackGenerator.generateRollerStackFirstIndexToBottom(numbersFrom1To4);
+        new Pillar(rollerStackFromTop4To1);
     }
 
     @Test (expectedExceptions = WrongRollerStack.class)
-    public void constructorInitailizatedWithRollerStack22_25_throwsRollerSizeException() throws WrongRollerStack {
+    public void constructorInitailizatedWithRollerStackFromTop_25_To_22_throwsRollerSizeException() throws WrongRollerStack {
         int [] numbersFrom1To20 = StackGenerator.generateIntArray(22, 25);
-        Stack<Roller> rollerStack1To20 = StackGenerator.generateRollerStackFirstIndexToBottom(numbersFrom1To20);
-        new Pillar(rollerStack1To20);
+        Stack<Roller> rollerStackFromTop25To22 = StackGenerator.generateRollerStackFirstIndexToBottom(numbersFrom1To20);
+        new Pillar(rollerStackFromTop25To22);
     }
 }
