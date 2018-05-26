@@ -15,7 +15,7 @@ public class RollerValidator {
 
     public boolean isProperRollerStack_ThrowExceptionIfNot(final Stack<Roller> stack) throws WrongRollerStack {
         if (!isStackProperlyIncreasesRollerSizesFromTopToBottom((Stack<Roller>) stack.clone())){
-            throw new WrongRollerStack("Stack is not increasing its size from top to bottom " + stack.toString());
+            throw new WrongRollerStack("Stack is not increasing its size from top to bottom. Stack: " + stack.toString());
         }
         if (!isStackContainingProperSizeRollers((Stack<Roller>) stack.clone())){
             throw new WrongRollerStack("Stack contain wrong size roller " + stack.toString());

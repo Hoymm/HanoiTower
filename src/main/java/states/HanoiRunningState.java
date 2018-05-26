@@ -31,6 +31,6 @@ public class HanoiRunningState implements Hanoi{
 
     @Override
     public void printState() {
-        
+
     }
 }
