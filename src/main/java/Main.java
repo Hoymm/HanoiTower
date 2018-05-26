@@ -6,9 +6,9 @@ public class Main {
         Hanoi hanoi = new HanoiStartState();
 
         while(hanoi.notFinished()){
+            hanoi.printState();
             hanoi.process();
             hanoi.nextState();
-            hanoi.printState();
         }
     }
 }

@@ -39,4 +39,9 @@ public class HanoiStartState implements Hanoi {
     public Hanoi nextState() {
         return new HanoiRunningState(gamePillars, output);
     }
+
+    @Override
+    public void printState() {
+        output.accept("Witaj w symulatorze Hanoi");
+    }
 }

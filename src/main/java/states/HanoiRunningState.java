@@ -28,4 +28,9 @@ public class HanoiRunningState implements Hanoi{
     public Hanoi nextState() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public void printState() {
+        
+    }
 }
