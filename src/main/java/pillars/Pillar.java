@@ -32,6 +32,10 @@ public class Pillar {
     }
 
     private boolean canRollerBeAddedToStack(Roller roller) {
-        return rollerStack.empty() || roller.isSmallerThan(rollerStack.peek());
+        return isEmpty() || roller.isSmallerThan(rollerStack.peek());
+    }
+
+    public boolean isEmpty() {
+        return rollerStack.isEmpty();
     }
 }

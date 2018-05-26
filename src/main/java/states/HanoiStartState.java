@@ -7,7 +7,7 @@ import rollerStackGenerator.RollersStackGenerator;
 import java.util.Stack;
 import java.util.function.Consumer;
 
-public class HanoiStartState implements Hanoi {
+public class HanoiStartState implements HanoiState {
     private GamePillars gamePillars;
     private Consumer<String> output;
 
@@ -36,12 +36,12 @@ public class HanoiStartState implements Hanoi {
     }
 
     @Override
-    public Hanoi nextState() {
+    public HanoiState nextState() {
         return new HanoiRunningState(gamePillars, output);
     }
 
     @Override
     public void printState() {
-        output.accept("Witaj w symulatorze Hanoi");
+        output.accept("Witaj w symulatorze HanoiState");
     }
 }

@@ -20,5 +20,12 @@ public class GamePillars {
         pillars.add(new Pillar());
     }
 
+    public Pillar getPillar(int index) throws ArrayIndexOutOfBoundsException {
+        if (0 <= index && index < pillars.size()){
+            return pillars.get(index);
+        }
+        throw new ArrayIndexOutOfBoundsException("Hanoi pillars index are in range [0-2], you tried to get pillar of index " + index);
+    }
+
 
 }

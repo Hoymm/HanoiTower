@@ -1,9 +1,9 @@
-import states.Hanoi;
+import states.HanoiState;
 import states.HanoiStartState;
 
 public class Main {
     public static void main(String[] args) {
-        Hanoi hanoi = new HanoiStartState();
+        HanoiState hanoi = new HanoiStartState();
 
         new Thread(() -> {
             while (hanoi.notFinished()) {

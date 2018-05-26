@@ -1,6 +1,6 @@
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import states.Hanoi;
+import states.HanoiState;
 import states.HanoiRunningState;
 import states.HanoiStartState;
 
@@ -8,7 +8,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class HanoiStartStateTest {
-    private Hanoi hanoi;
+    private HanoiState hanoi;
 
     @BeforeMethod
     public void setUp(){

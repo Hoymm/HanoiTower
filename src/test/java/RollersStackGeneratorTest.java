@@ -77,8 +77,8 @@ public class RollersStackGeneratorTest {
 
     private Stack<Roller> generateRollersStack(int i2) {
         Stack<Roller> expectedRollerStack = new Stack<>();
-        for (int i = 1; i < i2; ++i) {
-            expectedRollerStack.add(new Roller(i));
+        for (int i = i2; i > 0; --i) {
+            expectedRollerStack.push(new Roller(i));
         }
         return expectedRollerStack;
     }

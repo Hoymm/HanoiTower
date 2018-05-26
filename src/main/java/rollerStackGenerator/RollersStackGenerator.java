@@ -24,7 +24,7 @@ public class RollersStackGenerator {
 
     public Stack<Roller> generate() {
         Stack<Roller> generatedStack = new Stack<>();
-        for (int i = stackSize; i >= 1; --i) {
+        for (int i = stackSize; i >= 1; --  i) {
             generatedStack.push(new Roller(i));
         }
         return generatedStack;

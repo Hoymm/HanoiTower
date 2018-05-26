@@ -4,13 +4,12 @@ import pillars.GamePillars;
 
 import java.util.function.Consumer;
 
-public class HanoiRunningState implements Hanoi{
+public class HanoiRunningState implements HanoiState {
     private GamePillars gamePillars;
     private Consumer<String> output;
 
     public HanoiRunningState(GamePillars gamePillars, Consumer<String> output) {
         this.gamePillars = gamePillars;
-
         this.output = output;
     }
 
@@ -25,7 +24,7 @@ public class HanoiRunningState implements Hanoi{
     }
 
     @Override
-    public Hanoi nextState() {
+    public HanoiState nextState() {
         throw new UnsupportedOperationException();
     }
 

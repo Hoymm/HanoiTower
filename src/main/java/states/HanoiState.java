@@ -1,8 +1,8 @@
 package states;
 
-public interface Hanoi {
+public interface HanoiState {
     boolean notFinished();
     void process();
-    Hanoi nextState();
+    HanoiState nextState();
     void printState();
 }
