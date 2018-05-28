@@ -4,6 +4,7 @@ import rollerStackGenerator.Rollers.Roller;
 import rollerStackGenerator.Rollers.WrongRollerStack;
 import rollerStackGenerator.Rollers.RollerValidator;
 
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class Pillar {
@@ -29,6 +30,13 @@ public class Pillar {
             return true;
         }
         return false;
+    }
+
+    public Roller popRoller() throws EmptyStackException {
+        if (rollerStack.isEmpty()){
+            throw new EmptyStackException();
+        }
+        return rollerStack.pop();
     }
 
     private boolean canRollerBeAddedToStack(Roller roller) {

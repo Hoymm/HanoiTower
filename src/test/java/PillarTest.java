@@ -4,10 +4,11 @@ import rollerStackGenerator.Rollers.WrongRollerStack;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertSame;
 import static org.testng.Assert.assertTrue;
 
 public class PillarTest {
@@ -19,7 +20,7 @@ public class PillarTest {
         pillar = new Pillar();
         rollerSize3 = new Roller(3);
         rollerSize4 = new Roller(4);
-        StackGenerator.generateRollerStackFirstIndexToBottom(3);
+//        StackGenerator.generateRollerStackFirstIndexToBottom(3);
     }
 
     @Test
@@ -121,5 +122,37 @@ public class PillarTest {
     public void isEmpty_whenPillarContainsAnItem_returnsFalse() {
         pillar.addRoller(new Roller(5));
         assertFalse(pillar.isEmpty());
+    }
+
+    @Test
+    public void popRoller_whenThereIsOneRoller_afterPop_pillarIsEmpty() {
+        Roller rollerToPut = new Roller(1);
+        pillar.addRoller(rollerToPut);
+        pillar.popRoller();
+        assertTrue(pillar.isEmpty());
+    }
+
+    @Test
+    public void popRoller_whenThereIsTwoRollers_afterPop_pillarIsNotEmpty() {
+        Roller rollerToPutValue1 = new Roller(1);
+        Roller rollerToPutValue2 = new Roller(2);
+        pillar.addRoller(rollerToPutValue2);
+        pillar.addRoller(rollerToPutValue1);
+        pillar.popRoller();
+        assertFalse(pillar.isEmpty());
+    }
+
+    @Test
+    public void popRoller_whenTwoRollersAdded_thenPop_returnsAnObjectOfFirstRoller() {
+        Roller rollerToPutValue1 = new Roller(1);
+        Roller rollerToPutValue2 = new Roller(2);
+        pillar.addRoller(rollerToPutValue2);
+        pillar.addRoller(rollerToPutValue1);
+        assertSame(rollerToPutValue1, pillar.popRoller());
+    }
+
+    @Test (expectedExceptions = EmptyStackException.class)
+    public void popRoller_whenPillarIsEmpty_throwsEmptyStackExceptionError() {
+        pillar.popRoller();
     }
 }

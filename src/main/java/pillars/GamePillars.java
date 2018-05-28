@@ -27,5 +27,15 @@ public class GamePillars {
         throw new ArrayIndexOutOfBoundsException("Hanoi pillars index are in range [0-2], you tried to get pillar of index " + index);
     }
 
+    public void moveRollerFromTo(int pillarIndexToTakeFrom, int pillarIndexToPutOn) {
+        Pillar pillarToTakeFrom = getPillar(pillarIndexToTakeFrom);
+        Pillar pillarToPutOn = getPillar(pillarIndexToPutOn);
 
+        Roller rollerToMove = pillarToTakeFrom.popRoller();
+        pillarToPutOn.addRoller(rollerToMove);
+    }
+
+    public boolean isGameFinished() {
+        return pillars.get(0).isEmpty() && pillars.get(1).isEmpty();
+    }
 }

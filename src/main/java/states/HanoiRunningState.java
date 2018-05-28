@@ -20,7 +20,6 @@ public class HanoiRunningState implements HanoiState {
 
     @Override
     public void process() {
-        throw new UnsupportedOperationException();
     }
 
     @Override
