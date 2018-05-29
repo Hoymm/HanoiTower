@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Stack;
 
 public class GamePillars {
-    private List<Pillar> pillars = new ArrayList<>(3);
+    private List<Pillar> pillars = new ArrayList<>();
+    private int rollersInGame;
 
     public GamePillars(Stack<Roller> rollersStackGenerator) {
         try {
@@ -18,6 +19,7 @@ public class GamePillars {
         }
         pillars.add(new Pillar());
         pillars.add(new Pillar());
+        rollersInGame = rollersStackGenerator.size();
     }
 
     public Pillar getPillar(int index) throws ArrayIndexOutOfBoundsException {
@@ -37,5 +39,9 @@ public class GamePillars {
 
     public boolean isGameFinished() {
         return pillars.get(0).isEmpty() && pillars.get(1).isEmpty();
+    }
+
+    public int howManyRollersInGame(){
+        return rollersInGame;
     }
 }

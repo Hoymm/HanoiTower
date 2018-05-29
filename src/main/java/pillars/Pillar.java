@@ -4,6 +4,7 @@ import rollerStackGenerator.Rollers.Roller;
 import rollerStackGenerator.Rollers.WrongRollerStack;
 import rollerStackGenerator.Rollers.RollerValidator;
 
+import java.util.Arrays;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
@@ -45,5 +46,10 @@ public class Pillar {
 
     public boolean isEmpty() {
         return rollerStack.isEmpty();
+    }
+
+    @Override
+    public String toString() {
+        return rollerStack.toString();
     }
 }

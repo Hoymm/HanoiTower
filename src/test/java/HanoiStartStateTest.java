@@ -12,7 +12,7 @@ public class HanoiStartStateTest {
 
     @BeforeMethod
     public void setUp(){
-        hanoi = new HanoiStartState();
+        hanoi = new HanoiStartState(3);
     }
 
     @Test

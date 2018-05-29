@@ -3,19 +3,15 @@ import states.HanoiStartState;
 
 public class Main {
     public static void main(String[] args) {
-        HanoiState hanoi = new HanoiStartState();
+        System.out.println("Please insert rollers value in range [3-20], other will not be accepted");
+        int howManyRollers = 5;
 
         new Thread(() -> {
+            HanoiState hanoi = new HanoiStartState(howManyRollers);
             while (hanoi.notFinished()) {
                 hanoi.process();
-                hanoi.nextState();
+                hanoi = hanoi.nextState();
                 hanoi.printState();
-
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         }).start();
     }
